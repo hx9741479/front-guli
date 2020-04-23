@@ -106,6 +106,10 @@ export default {
     }
   },
   created() {
+    // courseId来源于路由
+    if (this.$route.name === 'CourseInfoEdit') {
+      this.$parent.courseId = this.$route.params.id
+    }
     if (this.$parent.courseId) { // 回显
       this.fetchCourseInfoById(this.$parent.courseId)
     } else { // 新增
