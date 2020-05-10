@@ -17,8 +17,8 @@
           :on-success="fileUploadSuccess"
           :on-error="fileUploadError"
           :limit="1"
+          :action="BASE_API+'/admin/oss/file/upload?module=avatar'"
           list-type="picture"
-          action="http://127.0.0.1:8110/admin/edu/subject/import"
           name="file"
           accept="application/vnd.ms-excel">
           <el-button
@@ -42,7 +42,8 @@ export default {
   data() {
     return {
       defaultExcelTemplate: process.env.OSS_PATH + '/excel/课程分类列表模板.xls', // 默认Excel模板
-      importBtnDisabled: false // 导入按钮是否禁用
+      importBtnDisabled: false, // 导入按钮是否禁用
+      BASE_API: process.env.BASE_API
     }
   },
   methods: {
